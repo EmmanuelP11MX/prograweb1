@@ -17,11 +17,9 @@
             <input type="password" id="form1Example23" name="contrasena" class="form-control form-control-lg" />
             <label class="form-label" for="form1Example23">Contraseña</label>
           </div>
-
           <div class="d-flex justify-content-around align-items-center mb-4">
             <a href="login.php?action=forgot">¿Olvidaste tu contraseña?</a>
           </div>
-
           <!-- Submit button -->
           <input type="submit" name="enviar" value="Ingresar" class="btn btn-primary btn-lg btn-block">
         </form>

@@ -9,13 +9,13 @@
         <form method="POST" action="login.php?action=reset">
           <!-- Password input -->
           <div class="form-outline mb-4">
-            <input type="password" id="form1Example23" name="contrasena" class="form-control form-control-lg" />
-            <label class="form-label" for="form1Example23">Nueva Contraseña</label>
+            <input type="password" id="form1Example13" name="contrasena" class="form-control form-control-lg" />
+            <label class="form-label" for="form1Example13">Nueva contraseña</label>
           </div>
-          <input type="hidden" name="correo" value="<?php echo $data['correo']; ?>" />
-          <input type="hidden" name="token" value="<?php echo $data['token']; ?>" />
+          <input type="hidden" name="correo" value="<?php echo $data['correo']; ?>"/>
+          <input type="hidden" name="token" value="<?php echo $data['token']; ?>"/>
           <!-- Submit button -->
-          <input type="submit" name="enviar" value="Restablecer Contraseña" class="btn btn-primary btn-lg btn-block">
+          <input type="submit" name="enviar" value="Restablecer contraseña" class="btn btn-primary btn-lg btn-block">
         </form>
       </div>
     </div>
