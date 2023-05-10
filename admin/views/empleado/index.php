@@ -46,7 +46,8 @@
                                 <?php echo $empleado["curp"] ?>
                             </td>
                             <td>
-                                <?php echo $empleado["foto"]; ?>
+                                <img height="75px" src="<?php echo $empleado["foto"]; ?>" alt="Imagen del Empleado">
+                                
                             </td>
                             <td>
                                 <?php echo $empleado["id_departamento"] ?>

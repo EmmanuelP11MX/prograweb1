@@ -21,7 +21,7 @@
             <td><?php echo $caso_exito['caso_exito']; ?></td>
             <td><?php echo $caso_exito['descripcion']; ?></td>
             <td><?php echo $caso_exito['resumen']; ?></td>
-            <td><?php echo $caso_exito['imagen']; ?></td>
+            <td><img height="75px" src="<?php echo $caso_exito["imagen"]; ?>" alt="Imagen del Empleado"></td>
             <td><?php echo $caso_exito['activo']; ?></td>
             <td>
                 <div class="btn-group" role="group" aria-label="Menu Renglon">

@@ -19,11 +19,11 @@
     </div>
     <div class="mb-3">
         <label class="form-label">Descripción</label>
-        <textarea name="data[descripcion]" class="form-control" placeholder="Descripción del caso" value="<?php echo isset($data[0]['descripcion']) ? $data[0]['descripcion'] : ''; ?>"> DESCRIPCI´´ON USANDO TINYMCE</textarea>
+        <textarea name="data[descripcion]" class="form-control" placeholder="Descripción del caso" value="<?php echo isset($data[0]['descripcion']) ? $data[0]['descripcion'] : ''; ?>"></textarea>
     </div>
     <div class="mb-3">
         <label class="form-label">Resumen</label>
-        <textarea  name="data[resumen]" class="form-control"  value="<?php echo isset($data[0]['resumen']) ? $data[0]['resumen'] : ''; ?>" > RESUMEN USANDO TINYMCE</textarea >
+        <textarea  name="data[resumen]" class="form-control" placeholder="Resumen del caso" value="<?php echo isset($data[0]['resumen']) ? $data[0]['resumen'] : ''; ?>" ></textarea >
     </div>
 
     <div class="mb-3">
