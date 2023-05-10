@@ -1,16 +1,15 @@
 <?php
-require_once("controllers/empleado.php");
-require_once("controllers/departamento.php");
+require_once(__DIR__."/controllers/empleado.php");
+require_once(__DIR__."/controllers/departamento.php");
 include_once("views/header.php");
 include_once("views/menu.php");
-
-$empleado = new empleado;
 $empleado -> validateRol('Administrador');
 $action = (isset($_GET['action'])) ? $_GET['action'] : "getAll";
 $id = (isset($_GET['id'])) ? $_GET['id'] : null;
+
 switch ($action) {
     case 'new':
-        $dataDepartamentos = $departamento->get(null);
+        $datadepartamentos = $departamento->get(null);
         if (isset($_POST['enviar'])) {
             $data = $_POST['data'];
             $cantidad = $empleado->new($data);
@@ -26,8 +25,9 @@ switch ($action) {
             include('views/empleado/form.php');
         }
         break;
+
     case 'edit':
-        $dataDepartamentos = $departamento->get(null);
+        $datadepartamentos = $departamento->get(null);
         if (isset($_POST['enviar'])) {
             $data = $_POST['data'];
             $id = $_POST['data']['id_empleado'];
@@ -46,6 +46,7 @@ switch ($action) {
             include('views/empleado/form.php');
         }
         break;
+
     case 'delete':
         $cantidad = $empleado->delete($id);
         if ($cantidad) {

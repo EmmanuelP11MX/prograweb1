@@ -1,117 +1,62 @@
-<h1>
-    <?php echo ($action == 'edit') ? 'Modificar' : 'Nuevo'; ?> Empleado
-</h1>
+<!DOCTYPE html>
 
-<form class="container-fluid" method="POST" action="empleado.php?action=<?php echo ($action); ?>"
-    enctype="multipart/form-data">
+    <script src="/path/or/uri/to/tinymce.min.js" referrerpolicy="origin"></script>
+    <script>
+        tinymce.init({
+            selector: '#mytextarea'
+        });
+        </script>
+    </head>
 
-    <div class="row">
-        <div class="col-2">
-            <label for="nombre">Nombre del empleado:</label>
-        </div>
+    <body>
+    <h1 class="text-center">
+    <?php echo ($action == 'edit') ? 'Modificar ' : 'Nuevo ' ?>CASO EXITO
+    </h1>
+    <form class="container-fluid" method="POST" action="caso_exito.php?action=<?php echo $action; ?>" enctype="multipart/form-data">
+        <div class="mb-3">
+        <label class="form-label">Nombre del caso de exito</label>
+        <input type="text" name="data[caso_exito]" class="form-control" placeholder="Caso Exito" value="<?php echo isset($data[0]['caso_exito']) ? $data[0]['caso_exito'] : ''; ?>"  required minlength="3" maxlength="200" />
     </div>
-    <div class="row">
-        <div class="col-2">
-            <input required="required" type="text" class="" id="nombre" name="data[nombre]"
-                value="<?php echo isset($data[0]['nombre']) ? $data[0]['nombre'] : ''; ?>" minlength="3"
-                maxlength="200">
-        </div>
+    <div class="mb-3">
+        <label class="form-label">Descripción</label>
+        <textarea name="data[descripcion]" class="form-control" placeholder="Descripción del caso" value="<?php echo isset($data[0]['descripcion']) ? $data[0]['descripcion'] : ''; ?>"> DESCRIPCI´´ON USANDO TINYMCE</textarea>
     </div>
-    <div class="row">
-        <div class="col-2">
-            <label for="primer_apellido">Primer Apellido:</label>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-2">
-            <input required="required" type="text" class="" id="primer_apellido" name="data[primer_apellido]"
-                value="<?php echo isset($data[0]['primer_apellido']) ? $data[0]['primer_apellido'] : ''; ?>">
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-2">
-            <label for="segundo_apellido">Segundo Apellido:</label>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-2">
-            <input required="required" type="text" class="" id="segundo_apellido" name="data[segundo_apellido]"
-                value="<?php echo isset($data[0]['segundo_apellido']) ? $data[0]['segundo_apellido'] : ''; ?>">
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-2">
-            <label for="fecha_nacimiento">Fecha de Nacimiento:</label>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-2">
-            <input required="required" type="date" class="" id="fecha_nacimiento" name="data[fecha_nacimiento]"
-                value="<?php echo isset($data[0]['fecha_nacimiento']) ? $data[0]['fecha_nacimiento'] : ''; ?>">
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-2">
-            <label for="rfc">RFC:</label>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-2">
-            <input required="required" type="text" class="" id="rfc" name="data[rfc]"
-                value="<?php echo isset($data[0]['rfc']) ? $data[0]['rfc'] : ''; ?>">
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-2">
-            <label for="curp">CURP:</label>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-2">
-            <input required="required" type="text" class="" id="curp" name="data[curp]"
-                value="<?php echo isset($data[0]['curp']) ? $data[0]['curp'] : ''; ?>">
-        </div>
+    <div class="mb-3">
+        <label class="form-label">Resumen</label>
+        <textarea  name="data[resumen]" class="form-control"  value="<?php echo isset($data[0]['resumen']) ? $data[0]['resumen'] : ''; ?>" > RESUMEN USANDO TINYMCE</textarea >
     </div>
 
-    <div class="row">
-        <p></p>
+    <div class="mb-3">
+        <label class="form-label">Imagen</label>
+        <input type="file" class="form-control" name="imagen" />
+    </div>
+    
+    <div class="mb-3">
+        <label class="form-label">Activo</label>
+        <input type="checkbox"  name="data[activo]" class="form-check-input" id="conditions" name="conditions" value="1" />
     </div>
 
-    <div class="row">
-        <div class="col-2">
-            <label for="id_departamento">Departamento:</label>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-2">
-            <select name="data[id_departamento]" required="required">
-                <?php
-                $selected = " ";
-                foreach ($dataDepartamentos as $key => $depto):
-                    if ($depto['id_departamento'] == $data[0]['id_departamento']):
-                        $selected = "selected";
-                    endif;
-                    ?>
-                    <option value="<?php echo $depto['id_departamento']; ?>" <?php echo $selected; ?>>
-                        <?php echo $depto['departamento'] ?></option>
-                    <?php $selected = " "; endforeach; ?>
-            </select>
-        </div>
+    <div class="mb-3">
+        <label class="form-label">Proyecto</label>
+        <select name="data[id_proyecto]" class="form-control" required>
+        <?php
+            foreach ($dataproyectos as $key => $proy): 
+            $selected = " ";
+            if ($proy['id_proyecto']==$data[0]['id_proyecto']):
+                $selected = " selected";
+            endif;?>
+        <option value="<?php echo $proy['id_proyecto']; ?>" <?php echo $selected; ?>><?php echo $proy['proyecto']; ?></option>
+        <?php endforeach; ?>
+        </select>
     </div>
 
-    <div class="row">
-        <p></p>
+    <div class="mb-3">
+        <?php if ($action == 'edit'): ?>
+        <input type="hidden" name="data[id_caso_exito]"
+            value="<?php echo isset($data[0]['id_caso_exito']) ? $data[0]['id_caso_exito'] : ''; ?>">
+        <?php endif; ?>
+        <input type="submit" name="enviar" value="Guardar" class="btn btn-primary" />
     </div>
-
-    <div class="row">
-        <div class="col-12">
-            <input type="submit" class="btn btn-primary mb-3" name="enviar" value="Guardar">
-        </div>
-    </div>
-
-    <?
-    if ($action == 'edit'): ?>
-        <input type="hidden" name="data[id_empleado]"
-            value="<?php echo isset($data[0]['id_empleado']) ? $data[0]['id_empleado'] : ''; ?>" class="" />
-    <? endif; ?>
+    </body>
+</html>
 </form>

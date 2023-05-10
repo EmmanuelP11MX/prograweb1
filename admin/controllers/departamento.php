@@ -7,12 +7,12 @@
         {
             $this->db();
             if (is_null($id)) {
-                $sql = "select * from departamento";
+                $sql = "SELECT * FROM departamento";
                 $st = $this->db->prepare($sql);
                 $st->execute();
                 $data = $st->fetchAll(PDO::FETCH_ASSOC);
             } else {
-                $sql = "select * from departamento where id_departamento = :id";
+                $sql = "SELECT * FROM departamento WHERE id_departamento = :id";
                 $st = $this->db->prepare($sql);
                 $st->bindParam(":id", $id, PDO::PARAM_INT);
                 $st->execute();
@@ -24,7 +24,7 @@
         public function new ($data)
         {
             $this->db();
-            $sql = "insert into departamento (departamento) values (:departamento)";
+            $sql = "INSERT INTO departamento (departamento) VALUES (:departamento)";
             $st = $this->db->prepare($sql);
             $st->bindParam(":departamento", $data['departamento'], PDO::PARAM_STR);
             $st->execute();

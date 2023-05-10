@@ -18,6 +18,7 @@
                         <th scope="col">fecha de nacimiento</th>
                         <th scope="col">RFC</th>
                         <th scope="col">CURP</th>
+                        <th scope="col">Foto</th>
                         <th scope="col">Departamento</th>
                     </tr>
                 </thead>
@@ -43,6 +44,9 @@
                             </td>
                             <td>
                                 <?php echo $empleado["curp"] ?>
+                            </td>
+                            <td>
+                                <?php echo $empleado["foto"]; ?>
                             </td>
                             <td>
                                 <?php echo $empleado["id_departamento"] ?>

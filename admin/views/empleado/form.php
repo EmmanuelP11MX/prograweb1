@@ -7,7 +7,7 @@
 
     <div class="row">
         <div class="col-2">
-            <label for="nombre">Nombre del empleado:</label>
+            <label for="nombre">Nombre(s) del empleado:</label>
         </div>
     </div>
     <div class="row">
@@ -73,8 +73,9 @@
         </div>
     </div>
 
-    <div class="row">
-        <p></p>
+    <div class="mb-3">
+        <label class="form-label">Imagen</label>
+        <input type="file" class="form-control" name="foto" />
     </div>
 
     <div class="row">
@@ -87,7 +88,7 @@
             <select name="data[id_departamento]" required="required">
                 <?php
                 $selected = " ";
-                foreach ($dataDepartamentos as $key => $depto):
+                foreach ($datadepartamentos as $key => $depto):
                     if ($depto['id_departamento'] == $data[0]['id_departamento']):
                         $selected = "selected";
                     endif;
@@ -100,18 +101,12 @@
     </div>
 
     <div class="row">
-        <p></p>
-    </div>
-
-    <div class="row">
         <div class="col-12">
+            <?php if ($action == 'edit'): ?>
+            <input type="hidden" name="data[id_empleado]"
+                value="<?php echo isset($data[0]['id_empleado']) ? $data[0]['id_empleado'] : ''; ?>">
+            <?php endif; ?>
             <input type="submit" class="btn btn-primary mb-3" name="enviar" value="Guardar">
         </div>
     </div>
-
-    <?
-    if ($action == 'edit'): ?>
-        <input type="hidden" name="data[id_empleado]"
-            value="<?php echo isset($data[0]['id_empleado']) ? $data[0]['id_empleado'] : ''; ?>" class="" />
-    <? endif; ?>
 </form>

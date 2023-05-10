@@ -1,6 +1,6 @@
 <?php
-require_once("controllers/proyecto.php");
-require_once("controllers/departamento.php");
+require_once(__DIR__."/controllers/proyecto.php");
+require_once(__DIR__."/controllers/departamento.php");
 include_once("views/header.php");
 include_once("views/menu.php");
 $proyecto -> validateRol('Lider');
@@ -11,7 +11,7 @@ $id_tarea = (isset($_GET['id_tarea'])) ? $_GET['id_tarea'] : null;
 switch ($action) {
     case 'new':
         $proyecto -> validatePrivilegio('Proyecto Crear');
-        $dataDepartamentos = $departamento->get(null);
+        $datadepartamentos = $departamento->get(null);
         if (isset($_POST['enviar'])) {
             $data = $_POST['data'];
             $cantidad = $proyecto->new($data);
@@ -27,8 +27,9 @@ switch ($action) {
             include('views/proyecto/form.php');
         }
         break;
+
     case 'delete':
-        $proyecto -> validatePrivilegio('Proyecto Borrar');
+        $proyecto -> validatePrivilegio('Proyecto Eliminar');
         $cantidad = $proyecto->delete($id);
         if ($cantidad) {
             $proyecto->flash('success', 'Registro con el id= ' . $id . ' eliminado con éxito');
@@ -40,9 +41,10 @@ switch ($action) {
             include('views/proyecto/index.php');
         }
         break;
+
     case 'edit':
         $proyecto -> validatePrivilegio('Proyecto Actualizar');
-        $dataDepartamentos = $departamento->get(null);
+        $datadepartamentos = $departamento->get(null);
         if (isset($_POST['enviar'])) {
             $data = $_POST['data'];
             $id = $_POST['data']['id_proyecto'];
@@ -68,7 +70,7 @@ switch ($action) {
         include('views/proyecto/tarea.php');
         break;
     case 'deletetask':
-        $proyecto -> validatePrivilegio('Proyecto Borrar');
+        $proyecto -> validatePrivilegio('Proyecto Eliminar');
         $cantidad = $proyecto->deleteTask($id_tarea);
         if ($cantidad) {
             $proyecto->flash('success', 'Registro con el id= ' . $id_tarea . ' eliminado con éxito');

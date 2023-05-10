@@ -20,11 +20,9 @@ class Sistema{
     public function uploadfile($tipo, $ruta, $archivo)
     {
         $name = false;
-        $uploads['archivo'] = array("application/gzip", "application/zip", "application/x-zip-compressed");
-        $uploads['fotografia'] = array("image/jpeg", "image/jpg", "image/gif", "image/png");
-        if($_FILES[$tipo]['error']==4){
+        $uploads['archivo'] = array("application/gzip", "application/zip", "application/x-zip-compressed","image/jpeg", "image/jpg", "image/gif", "image/png");
+        if ($_FILES[$tipo]['error'] == 4) {
             return $name;
-            
         }
         if ($_FILES[$tipo]['error'] == 0) {
             if (in_array($_FILES[$tipo]['type'], $uploads['archivo'])) {

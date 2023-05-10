@@ -19,7 +19,7 @@
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="departamento.php">Departamentos</a></li>
             <li><a class="dropdown-item" href="proyecto.php">Proyectos</a></li>
-            <li><a class="dropdown-item" href="caso_exito.php">Caso Exito</a></li>
+            <li><a class="dropdown-item" href="caso_exito.php">Casos de Exito</a></li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="#">Something else here</a></li>
           </ul>

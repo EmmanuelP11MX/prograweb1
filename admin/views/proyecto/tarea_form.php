@@ -22,12 +22,9 @@
         <input type="submit" name="enviar" value="Guardar" class="btn btn-primary" />
     </div>
 </form>
-
 <script>
     const value = document.querySelector("#value")
     const input = document.querySelector("#por_avance")
     value.textContent = input.value
-    input.addEventListener("input", (event) => {
-    value.textContent = event.target.value
-    })
+    input.addEventListener("input", (event) => {value.textContent = event.target.value})
 </script>

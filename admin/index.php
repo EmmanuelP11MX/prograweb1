@@ -1,15 +1,15 @@
 <?php 
-require_once("controllers/departamento.php");
-$sistema -> validateRol('Usuario');
-include_once("controllers/sistema.php");
-include_once("controllers/proyecto.php");
-include_once("views/header.php");
-include_once("views/menu.php");
-$reporte=$proyecto->chartProyecto();
+    require_once(__DIR__."/controllers/departamento.php");
+    include_once(__DIR__."/controllers/sistema.php");
+    include_once(__DIR__."/controllers/proyecto.php");
+    include_once("views/header.php");
+    include_once("views/menu.php");
+    $sistema -> validateRol('Usuario');
+    $reporte=$proyecto->chartProyecto();
 ?>
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-        <script type="text/javascript">
 
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
         // Load the Visualization API and the corechart package.
         google.charts.load('current', {'packages':['corechart']});
 
@@ -29,21 +29,18 @@ $reporte=$proyecto->chartProyecto();
             <?php endforeach; ?>
         ]);
 
+        // Set chart options
+        var options = {'title':'Proyectos mensuales', 'width':400, 'height':300};
 
-            // Set chart options
-            var options = {'title':'Proyectos mensuales',
-                        'width':400,
-                        'height':300};
-
-            // Instantiate and draw our chart, passing in some options.
-            var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
-            chart.draw(data, options);
-        }
-        </script>
-        <body>
-        <!--Div that will hold the pie chart-->
-        <div id="chart_div"></div>
-    </body>
+        // Instantiate and draw our chart, passing in some options.
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+}
+</script>
+<body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+</body>
 <?php
-include_once("views/footer.php");
+    include_once("views/footer.php");
 ?>
