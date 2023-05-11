@@ -2,11 +2,11 @@
     require_once(__DIR__."/controllers/departamento.php");
     include_once('views/header.php');
     include_once('views/menu.php');
-    
-    $departamento->validateRol('Administrador');
 
+    $departamento->validateRol('Administrador');
     $action = (isset($_GET['action'])) ? $_GET['action'] : 'get';
     $id = (isset($_GET['id'])) ? $_GET['id'] : null;
+    
     switch ($action) {
         case 'new':
             if (isset($_POST['enviar'])) {

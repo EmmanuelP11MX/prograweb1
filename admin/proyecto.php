@@ -102,7 +102,6 @@ switch ($action) {
             include('views/proyecto/tarea_form.php');
         }
         //$data_tarea = $proyecto->getTask($id);
-
         break;
 
     case 'edittask':
