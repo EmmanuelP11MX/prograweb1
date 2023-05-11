@@ -10,6 +10,7 @@ $id = (isset($_GET['id'])) ? $_GET['id'] : null;
 
 switch ($action) {
     case 'new':
+        $usuario -> validatePrivilegio('Usuario Crear');
         if (isset($_POST['enviar'])) {
             $data = $_POST['data'];
             $cantidad = $usuario->new($data);
@@ -27,6 +28,7 @@ switch ($action) {
         break;
 
     case 'edit':
+        $usuario -> validatePrivilegio('Usuario Actualizar');
         if(isset($_POST['enviar'])) {
             $data = $_POST['data'];
             $id = $_POST['data']['id_usuario'];
@@ -47,6 +49,7 @@ switch ($action) {
         break;
 
     case 'delete':
+        $usuario -> validatePrivilegio('Usuario Eliminar');
         $cantidad = $usuario->delete($id);
         if ($cantidad) {
             $usuario->flash('success', "Registro eliminado con éxito");
@@ -61,6 +64,7 @@ switch ($action) {
 
     case 'get':
         default:
+        $usuario -> validatePrivilegio('Usuario Leer');
             $data = $usuario->get($id);
             include('views/usuario/index.php');
 }

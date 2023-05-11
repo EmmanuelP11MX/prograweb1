@@ -27,7 +27,8 @@ class Usuario extends Sistema
         $sql = "INSERT INTO usuario (correo, contrasena) VALUES (:correo, :contrasena)";
         $st = $this->db->prepare($sql);
         $st->bindParam(":correo", $data['correo'], PDO::PARAM_STR);
-        $st->bindParam(":contrasena", md5($data['contrasena']), PDO::PARAM_STR);
+        $contrasena = md5($data['contrasena']);
+        $st->bindParam(":contrasena", $contrasena, PDO::PARAM_STR);
         $st->execute();
 
         $id_usuario = $this->db->lastInsertId();
