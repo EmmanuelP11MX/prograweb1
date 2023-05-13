@@ -1,5 +1,6 @@
 <?php
 require_once(__DIR__."/controllers/rol.php");
+require_once(__DIR__."/controllers/privilegio.php");
 include_once("views/header.php");
 include_once("views/menu.php");
 
@@ -9,6 +10,7 @@ $id = (isset($_GET['id'])) ? $_GET['id'] : null;
 
 switch ($action) {
     case 'new':
+        $dataprivilegios = $privilegio->get(null);
         if (isset($_POST['enviar'])) {
             $data = $_POST['data'];
             $cantidad = $rol->new($data);
@@ -25,6 +27,7 @@ switch ($action) {
         }
         break;
     case 'edit':
+        $dataprivilegios = $privilegio->get(null);
         if (isset($_POST['enviar'])) {
             $data = $_POST['data'];
             $id = $_POST['data']['id_rol'];

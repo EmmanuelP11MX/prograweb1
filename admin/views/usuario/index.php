@@ -22,13 +22,13 @@
                     foreach ($data as $key => $usuario):
                         $nReg++; ?>
                         <tr>
-                            <td>
+                            <td scope="row">
                                 <?php echo $usuario["id_usuario"] ?>
                             </td>
-                            <td>
+                            <td scope="row">
                                 <?php echo $usuario["correo"] ?>
                             </td>
-                            <td>
+                            <td scope="row">
                                 <?php echo $usuario["rol"] ?>
                             </td>
                             <td>

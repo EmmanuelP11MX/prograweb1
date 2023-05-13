@@ -66,7 +66,7 @@ switch ($action) {
 
     case 'get':
         default:
-        $usuario -> validatePrivilegio('Usuario Leer');
+            $usuario -> validatePrivilegio('Usuario Leer');
             $data = $usuario->get($id);
             include('views/usuario/index.php');
 }

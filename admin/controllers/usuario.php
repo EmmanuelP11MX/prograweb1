@@ -6,14 +6,14 @@ class Usuario extends Sistema
     {
         $this->db();
         if (is_null($id)) {
-            $sql = "SELECT u.id_usuario, u.correo, r.rol FROM usuario u 
+            $sql = "SELECT * FROM usuario u 
             LEFT JOIN rol_usuario ru ON u.id_usuario = ru.id_usuario 
             LEFT JOIN rol r ON ru.id_rol = r.id_rol;";
             $st = $this->db->prepare($sql);
             $st->execute();
             $data = $st->fetchAll(PDO::FETCH_ASSOC);
         } else {
-            $sql = "SELECT u.id_usuario, u.correo, r.rol FROM usuario u 
+            $sql = "SELECT * FROM usuario u 
             LEFT JOIN rol_usuario ru ON u.id_usuario = ru.id_usuario 
             LEFT JOIN rol r ON ru.id_rol = r.id_rol WHERE u.id_usuario = :id";
             $st = $this->db->prepare($sql);

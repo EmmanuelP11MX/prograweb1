@@ -3,8 +3,9 @@
 <table class="table table-responsive table-bordered">
     <thead>
         <tr>
-            <th scope="col">#</th>
+            <th scope="col">ID</th>
             <th scope="col">Rol</th>
+            <th scope="col">Privilegio</th>
         </tr>
     </thead>
     <tbody>
@@ -17,6 +18,9 @@
                 </th>
                 <th scope="row">
                     <?php echo $rol["rol"] ?>
+                </th>
+                <th scope="row">
+                    <?php echo $rol["privilegio"] ?>
                 </th>
                 <th>
                     <div class="btn-group" role="group" aria-label="Basic example">
