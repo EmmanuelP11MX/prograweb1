@@ -3,6 +3,7 @@ require_once(__DIR__."/controllers/proyecto.php");
 require_once(__DIR__."/controllers/departamento.php");
 include_once("views/header.php");
 include_once("views/menu.php");
+
 $proyecto -> validateRol('Lider');
 $action = (isset($_GET["action"])) ? $_GET["action"] : null;
 $id = (isset($_GET['id'])) ? $_GET['id'] : null;
@@ -63,12 +64,14 @@ switch ($action) {
             include('views/proyecto/form.php');
         }
         break;
+
     case 'task':
         $proyecto -> validatePrivilegio('Proyecto Leer');
         $data = $proyecto->get($id);
         $data_tarea = $proyecto->getTask($id);
         include('views/proyecto/tarea.php');
         break;
+
     case 'deletetask':
         $proyecto -> validatePrivilegio('Proyecto Eliminar');
         $cantidad = $proyecto->deleteTask($id_tarea);
@@ -84,6 +87,7 @@ switch ($action) {
             include('views/proyecto/tarea.php');
         }
         break;
+        
     case 'newtask':
         $proyecto -> validatePrivilegio('Proyecto Crear');
         $data = $proyecto->get($id);

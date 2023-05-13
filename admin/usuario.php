@@ -5,12 +5,13 @@ include_once("views/header.php");
 include_once("views/menu.php");
 
 $usuario -> validateRol('Administrador');
-$action = (isset($_GET['action'])) ? $_GET['action'] : "getAll";
+$action = (isset($_GET['action'])) ? $_GET['action'] : null;
 $id = (isset($_GET['id'])) ? $_GET['id'] : null;
 
 switch ($action) {
     case 'new':
         $usuario -> validatePrivilegio('Usuario Crear');
+        $dataroles = $rol->get(null);
         if (isset($_POST['enviar'])) {
             $data = $_POST['data'];
             $cantidad = $usuario->new($data);
@@ -29,6 +30,7 @@ switch ($action) {
 
     case 'edit':
         $usuario -> validatePrivilegio('Usuario Actualizar');
+        $dataroles = $rol->get(null);
         if(isset($_POST['enviar'])) {
             $data = $_POST['data'];
             $id = $_POST['data']['id_usuario'];
@@ -52,7 +54,7 @@ switch ($action) {
         $usuario -> validatePrivilegio('Usuario Eliminar');
         $cantidad = $usuario->delete($id);
         if ($cantidad) {
-            $usuario->flash('success', "Registro eliminado con éxito");
+            $usuario->flash('success', 'Registro con el id= ' . $id . ' eliminado con éxito');
             $data = $usuario->get(null);
             include('views/usuario/index.php');
         } else {

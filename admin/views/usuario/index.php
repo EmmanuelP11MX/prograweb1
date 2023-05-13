@@ -14,6 +14,7 @@
                     <tr>
                         <th scope="col">ID</th>
                         <th scope="col">Correo</th>
+                        <th scope="col">ID Rol</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -26,6 +27,9 @@
                             </td>
                             <td>
                                 <?php echo $usuario["correo"] ?>
+                            </td>
+                            <td>
+                                <?php echo $usuario["rol"] ?>
                             </td>
                             <td>
                                 <div class="btn-group" role="group" aria-label="Basic example">
@@ -45,7 +49,6 @@
                     </tr>
                 </tbody>
             </table>
-
         </div>
     </div>
 </div>

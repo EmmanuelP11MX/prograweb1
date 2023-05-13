@@ -6,12 +6,12 @@ class Proyecto extends Sistema
     {
         $this->db();
         if (is_null($id)) {
-            $sql= "select * from proyecto p left join departamento d on p.id_departamento = d.id_departamento";
+            $sql= "SELECT * FROM proyecto p LEFT JOIN departamento d ON p.id_departamento = d.id_departamento";
             $st = $this->db->prepare($sql);
             $st->execute();
             $data = $st->fetchAll(PDO::FETCH_ASSOC);
         }else {
-            $sql = "select * from proyecto p left join departamento d on p.id_departamento = d.id_departamento where p.id_proyecto = :id";
+            $sql = "SELECT * FROM proyecto p LEFT JOIN departamento d ON p.id_departamento = d.id_departamento WHERE p.id_proyecto = :id";
             $st = $this->db->prepare($sql);
             $st->bindParam(":id", $id, PDO::PARAM_INT);
             $st->execute();
@@ -27,10 +27,10 @@ class Proyecto extends Sistema
             $this->db->beginTransaction();
             $nombrearchivo = str_replace(" ","_", $data['proyecto']);
             $nombrearchivo = substr($nombrearchivo, 0,20);
-            $sql = "insert into proyecto (proyecto, descripcion, fecha_inicial, fecha_final, id_departamento) values (:proyecto, :descripcion, :fecha_inicial, :fecha_final, :id_departamento)";
+            $sql = "INSERT INTO proyecto (proyecto, descripcion, fecha_inicial, fecha_final, id_departamento) VALUES (:proyecto, :descripcion, :fecha_inicial, :fecha_final, :id_departamento)";
             $sesubio = $this->uploadfile("archivo", '../uploads/proyectos', $nombrearchivo);
             if ($sesubio) {
-                $sql = "insert into proyecto (proyecto, descripcion, fecha_inicial, fecha_final, id_departamento, archivo) values (:proyecto, :descripcion, :fecha_inicial, :fecha_final, :id_departamento, :archivo)";
+                $sql = "INSERT INTO proyecto (proyecto, descripcion, fecha_inicial, fecha_final, id_departamento, archivo) VALUES (:proyecto, :descripcion, :fecha_inicial, :fecha_final, :id_departamento, :archivo)";
             }
             $st = $this->db->prepare($sql);
             $st->bindParam(":proyecto", $data['proyecto'], PDO::PARAM_STR);
@@ -64,8 +64,10 @@ class Proyecto extends Sistema
             $sql2 = "delete from proyecto where id_proyecto = :id";
             $st2 = $this->db->prepare($sql2);
             $st2->bindParam(":id", $id, PDO::PARAM_INT);
+
             $st->execute();
             $st2->execute();
+            
             $rc = $st2->rowCount();
             $this->db->commit();
         } catch (PDOException $exception) {
