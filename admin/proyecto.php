@@ -29,20 +29,6 @@ switch ($action) {
         }
         break;
 
-    case 'delete':
-        $proyecto -> validatePrivilegio('Proyecto Eliminar');
-        $cantidad = $proyecto->delete($id);
-        if ($cantidad) {
-            $proyecto->flash('success', 'Registro con el id= ' . $id . ' eliminado con éxito');
-            $data = $proyecto->get(null);
-            include('views/proyecto/index.php');
-        } else {
-            $proyecto->flash('danger', 'Algo fallo');
-            $data = $proyecto->get(null);
-            include('views/proyecto/index.php');
-        }
-        break;
-
     case 'edit':
         $proyecto -> validatePrivilegio('Proyecto Actualizar');
         $datadepartamentos = $departamento->get(null);
@@ -62,6 +48,20 @@ switch ($action) {
         } else {
             $data = $proyecto->get($id);
             include('views/proyecto/form.php');
+        }
+        break;
+
+    case 'delete':
+        $proyecto -> validatePrivilegio('Proyecto Eliminar');
+        $cantidad = $proyecto->delete($id);
+        if ($cantidad) {
+            $proyecto->flash('success', 'Registro con el id= ' . $id . ' eliminado con éxito');
+            $data = $proyecto->get(null);
+            include('views/proyecto/index.php');
+        } else {
+            $proyecto->flash('danger', 'Algo fallo');
+            $data = $proyecto->get(null);
+            include('views/proyecto/index.php');
         }
         break;
 

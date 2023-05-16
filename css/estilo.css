@@ -1,0 +1,253 @@
+:root{
+    --background: linear-gradient(135deg, #071552b5 0%, #2d55f7a3 100%);
+    --color-primary:#031d92;
+    --color-secondary:#dbb9fc;
+    --boton-padding: 20px 10px;
+}
+.container{
+    width: 90%;
+    margin: 0 auto;
+    overflow: visible;
+    padding: 120px 0px;
+    max-width: 1200px;
+}
+.container__page{
+    width: 90%;
+    margin: 0 auto;
+    overflow: visible;
+    padding: 20px 0px;
+    max-width: 1200px;
+}
+.hero__somos{
+    height: 55vh; /*tamaño de la imagen inicial*/
+    background-image: var(--background), url('../images/img3.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    position: relative;
+}
+.hero__container{
+    display: flex;
+    height: calc(100vh-70px);
+    align-items: center;
+    color: #ffffff;
+}
+.hero__texts{
+    width: 100%;
+    margin-bottom: 30px;
+}
+.hero__title{
+    font-size: 3.2rem;
+    text-align: center;
+}
+.hero__subtitle{
+    font-size: 2rem;
+    font-weight: 300;
+    margin: 20px 0;
+    text-align: center;
+}
+.hero__innovacion{
+    height: 40vh; /*tamaño de la imagen inicial*/
+    background-image: var(--background), url('../images/img4.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    position: relative;
+}
+.hero__sostenibilidad{
+    height: 50vh; /*tamaño de la imagen inicial*/
+    background-image: var(--background), url('../images/sostenibilidad_ini.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    position: relative;
+}
+.hero__saludys{
+    height: 50vh; /*tamaño de la imagen inicial*/
+    background-image: var(--background), url('../images/construc02.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    position: relative;
+}
+.hero__noticias{
+    height: 38vh; /*tamaño de la imagen inicial*/
+    background-image: var(--background), url('../images/noticias.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    position: relative;
+}
+.hero__construccion{
+    height: 38vh; /*tamaño de la imagen inicial*/
+    background-image: var(--background), url('../images/img6.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    position: relative;
+}
+.hero__carreteras{
+    height: 50vh; /*tamaño de la imagen inicial*/
+    background-image: var(--background), url('../images/card3.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    position: relative
+}
+.hero__puertos{
+    height: 55vh; /*tamaño de la imagen inicial*/
+    background-image: var(--background), url('../images/fondo_index.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    position: relative
+}
+.hero__ferrocarriles{
+    height: 55vh; /*tamaño de la imagen inicial*/
+    background-image: var(--background), url('../images/img5.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    position: relative
+}
+.hero__aeropuertos{
+    height: 50vh; /*tamaño de la imagen inicial*/
+    background-image: var(--background), url('../images/aeropuerto1.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    position: relative
+}
+.hero__hospitales{
+    height: 55vh; /*tamaño de la imagen inicial*/
+    background-image: var(--background), url('../images/hospital2.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    position: relative
+}
+.hero__hidraulicas{
+    height: 65vh; /*tamaño de la imagen inicial*/
+    background-image: var(--background), url('../images/hidraulicas1.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    position: relative
+}
+#nav{
+    font-family: 'Roboto', sans-serif;
+    background-color: #113c55;
+    font-size: 15px;
+    border-radius: 30px;
+    margin: 10px 10px 10px 10px;
+}
+#pie{
+    background-color: #386fa4;
+    height: 120px;
+    padding: 25px 25px 25px 25px;
+    color: ghostwhite;
+}
+#fondo{
+    background-color: #ffffff;
+}
+.card-text{
+    font-family: 'Khand', sans-serif;
+    font-size: 17px;
+    color: rgb(0, 0, 0);
+}
+.dropdown-menu{
+    font-family: 'Roboto', sans-serif;
+    background-color: #add7ff;
+    font-size: 15px;
+}
+.d-block{
+    opacity: 0.5 ;
+}
+.carousel-caption{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 30px;
+    color: black;
+}
+#titulonoti{
+    color: black;
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+}
+#proyect{
+    background-image: url('../images/fondo_index.jpg');
+    background-size: cover;
+    padding: 50px 60px 50px 60px;
+    text-align: center;
+}
+#somos{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 30px;
+    color: black;
+    margin: 0px 50px 0px 50px;
+}
+/*titulo y descripción*/
+.title{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 60px;
+    padding: 0px 0px 20px 0px;
+    text-align: center;
+}
+.about__descript{
+    font-family: 'Roboto', sans-serif;
+    color: var(--color-primary);
+    font-size: 25px;
+    padding: 25px 100px 25px 100px;
+    text-align: center;
+}
+/*Tarjeta de somos*/
+.subtitle{
+    font-family: 'Montserrat', sans-serif;
+    color: var(--color-primary);
+    font-size: 2rem;
+    margin-bottom: 35px;
+}
+.about{
+    min-height: 400px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    row-gap: 80px;
+    justify-items: center;
+    align-items: center;
+}
+.about__img{
+    text-align: center;
+}
+.about__img--left{
+    text-align: left;
+}
+.about__picture{
+    max-width: 80%;
+    border-radius: 10%;
+}
+.about__image2{
+    max-width: 100%;
+    border-radius: 10%;
+}
+.about__paragraph{
+    font-family: 'Roboto', sans-serif;
+    margin-bottom: 20px;
+    line-height: 1.5;
+    font-weight: 300;
+    font-size: 20px;
+}
+.presentation{
+    padding: 50px 50px 0px 50px;
+    text-align: center;
+}

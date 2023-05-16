@@ -80,4 +80,3 @@ class Rol extends Sistema
 }
 $rol = new Rol;
 ?>
-

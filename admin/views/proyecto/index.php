@@ -46,9 +46,9 @@
                                 <div class="btn-group" role="group" aria-label="Basic example">
                                     <a href="proyecto.php?action=task&id=<?php echo $proyecto['id_proyecto']?>"
                                         type="button" class="btn btn-dark" >Tareas</a>
-                                    <a href="empleado.php?action=edit&id=<?php echo $proyecto["id_proyecto"] ?>"
+                                    <a href="proyecto.php?action=edit&id=<?php echo $proyecto["id_proyecto"] ?>"
                                         type="button" class="btn btn-primary">Modificar</a>
-                                    <a href="empleado.php?action=delete&id=<?php echo $proyecto["id_proyecto"] ?>"
+                                    <a href="proyecto.php?action=delete&id=<?php echo $proyecto["id_proyecto"] ?>"
                                         type="button" class="btn btn-danger">Eliminar</a>
                                     <a href="reporte.php?action=proyecto&id=<?php echo $proyecto['id_proyecto']?>" 
                                         type="button" class="btn btn-light" target="_blank">Imprimir</a>

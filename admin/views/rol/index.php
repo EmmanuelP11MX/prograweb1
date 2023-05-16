@@ -9,16 +9,18 @@
         </tr>
     </thead>
     <tbody>
-        <?php $nReg = 0;
-        foreach ($data as $key => $rol):
-            $nReg++; ?>
+        <?php $nReg = 0; $last_id = ''; $last_rol = ''; foreach ($data as $key => $rol):?>
             <tr>
+                <?php if ($last_id != $rol["id_rol"] and $last_rol != $rol["rol"]): ?>          
                 <th scope="row">
                     <?php echo $rol["id_rol"] ?>
                 </th>
                 <th scope="row">
-                    <?php echo $rol["rol"] ?>
+                    <?php $nReg++; echo $rol["rol"] ?>
                 </th>
+                <?php else: ?>
+                <td></td> <td></td>
+                <?php endif; ?>
                 <th scope="row">
                     <?php echo $rol["privilegio"] ?>
                 </th>
@@ -31,6 +33,7 @@
                     </div>
                 </th>
             </tr>
+            <?php $last_id = $rol["id_rol"]; ?>
         <?php endforeach; ?>
         <tr>
             <th>

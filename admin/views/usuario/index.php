@@ -14,22 +14,19 @@
                     <tr>
                         <th scope="col">ID</th>
                         <th scope="col">Correo</th>
-                        <th scope="col">ID Rol</th>
+                        <th scope="col">Opciones</th>
+                        <th scope="col">Roles asignados</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <?php $nReg = 0;
-                    foreach ($data as $key => $usuario):
-                        $nReg++; ?>
+                    <?php $nReg = 0; $last_id = ''; $last_email = ''; foreach ($data as $key => $usuario):?>
                         <tr>
+                            <?php if ($last_id != $usuario["id_usuario"] and $last_email != $usuario["correo"]): ?>
                             <td scope="row">
-                                <?php echo $usuario["id_usuario"] ?>
+                                <?php $nReg++; echo $usuario["id_usuario"] ?>
                             </td>
                             <td scope="row">
                                 <?php echo $usuario["correo"] ?>
-                            </td>
-                            <td scope="row">
-                                <?php echo $usuario["rol"] ?>
                             </td>
                             <td>
                                 <div class="btn-group" role="group" aria-label="Basic example">
@@ -39,7 +36,15 @@
                                         type="button" class="btn btn-danger">Eliminar</a>
                                 </div>
                             </td>
+                            <?php else: ?>
+                            <td></td> <td></td> <td></td>
+                            <?php endif; ?>
+                            <td scope="row">
+                                <?php echo $usuario["rol"] ?>
+                            </td>
+                            
                         </tr>
+                        <?php $last_id = $usuario["id_usuario"]; ?>
                     <?php endforeach ?>
                     <tr>
                         <th>

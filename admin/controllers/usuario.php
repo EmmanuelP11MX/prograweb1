@@ -84,6 +84,63 @@ class Usuario extends Sistema
         return $rc;
     }
 
+    public function getPriv($id = null)
+    {
+        $this->db();
+        if (is_null($id)) {
+            $sql = "SELECT * FROM rol r 
+            LEFT JOIN rol_privilegio rp ON r.id_rol = rp.id_rol 
+            LEFT JOIN privilegio p ON rp.id_privilegio = p.id_privilegio";
+            $st = $this->db->prepare($sql);
+            $st->execute();
+            $data = $st->fetchAll(PDO::FETCH_ASSOC);
+        }else {
+            $sql = "SELECT * FROM rol r 
+            LEFT JOIN rol_privilegio rp ON r.id_rol = rp.id_rol 
+            LEFT JOIN privilegio p ON rp.id_privilegio = p.id_privilegio where r.id_rol = :id";
+            $st = $this->db->prepare($sql);
+            $st->bindParam(":id", $id, PDO::PARAM_INT);
+            $st->execute();
+            $data = $st->fetchAll(PDO::FETCH_ASSOC);
+        }
+        return $data;
+    }
+
+    public function deletePriv($id)
+    {
+        $this->db();
+        $sql = "DELETE FROM privilegio WHERE id_privilegio=:id";
+        $st = $this->db->prepare($sql);
+        $st->bindParam(":id", $id, PDO::PARAM_INT);
+        $st->execute();
+        $rc = $st->rowCount();
+        return $rc;
+    }
+
+    public function newPriv ($id, $data)
+    {
+        $this->db();
+        $sql = "INSERT INTO privilegio (id_rol, privilegio) values (:id_rol, :privilegio)";
+        $st = $this->db->prepare($sql);
+        $st->bindParam(":id_rol", $id, PDO::PARAM_INT);
+        $st->bindParam(":privilegio", $data['privilegio'], PDO::PARAM_STR);
+        $st->execute();
+        $rc = $st->rowCount();
+        return $rc;
+    }
+
+    public function editPriv($id, $id_rol, $id_privilgio)
+    {
+        $this->db();
+        $sql = "UPDATE privilegio SET tarea = :tarea, avance = :avance where id_tarea = :id_tarea and id_proyecto = :id_proyecto";
+        $st = $this->db->prepare($sql);
+        $st->bindParam(":id_usuario", $id, PDO::PARAM_INT);
+        $st->bindParam(":id_rol", $id_rol, PDO::PARAM_INT);
+        $st->bindParam(":id_privilegio", $id_privilgio, PDO::PARAM_INT);
+        $st->execute();
+        $rc = $st->rowCount();
+        return $rc;
+    }
 }
 $usuario = new Usuario;
 ?>
