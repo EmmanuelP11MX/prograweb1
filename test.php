@@ -1,10 +1,14 @@
 <?php 
-//DATA BASE
-require __DIR__.'/vendor/autoload.php';
+$archivoXML = "prueba.xml";
+$contenido = file_get_contents($archivoXML);
+$contenido = str_replace(array("\n", "\r", "\t"), '',$contenido);
+$contenido = trim(str_replace('"',"'",$contenido));
+$stringXML = simplexml_load_string($contenido);
+$json = json_encode($stringXML);
+print_r($json);
 
-use Spipu\Html2Pdf\Html2Pdf;
+$archivo = fopen('archivo1.json', 'w+');
+fwrite($archivo, $json . PHP_EOL);
 
-$html2pdf = new Html2Pdf();
-$html2pdf->writeHTML('<h1>HelloWorld</h1>This is my first test');
-$html2pdf->output();
+fclose($archivo);
 ?>
